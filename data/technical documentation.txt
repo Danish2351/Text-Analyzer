@@ -1,0 +1,45 @@
+User Guide for Data Processing CLI Tool
+
+Introduction
+The Data Processing CLI Tool is a lightweight command-line utility designed to simplify the ingestion, transformation, and export of structured datasets. Built with Python, it supports multiple formats including CSV, JSON, and Parquet. The tool is intended for data engineers, analysts, and researchers who require a reproducible and scalable solution for managing datasets.
+
+Installation
+The tool can be installed using pip:
+
+pip install dataproc-cli
+
+
+Dependencies are automatically resolved, but users must have Python 3.8+ installed.
+
+Usage
+The CLI is invoked with the dataproc command, followed by a subcommand. Supported subcommands include:
+
+ingest: Loads a dataset from a local file or remote URL.
+
+transform: Applies predefined operations such as filtering, aggregation, or column renaming.
+
+export: Saves the processed dataset in a specified format.
+
+For example, to ingest a CSV file and export it as JSON:
+
+dataproc ingest data.csv \
+  | dataproc transform --filter "age>30" \
+  | dataproc export output.json
+
+
+Configuration
+Configuration is handled through a YAML file named config.yaml. Users can define default input paths, schema mappings, and transformation rules. The CLI automatically loads this configuration, ensuring consistent workflows across environments.
+
+Error Handling
+The tool provides descriptive error messages. For instance, if a dataset contains unsupported column types, the CLI will notify the user and suggest appropriate conversions. Logs can be written to a file by appending the --log flag to any command.
+
+Best Practices
+
+Always validate datasets before transformation using dataproc validate.
+
+Use version control for configuration files to ensure reproducibility.
+
+When working with sensitive data, enable encryption using the --secure flag during export.
+
+Conclusion
+The Data Processing CLI Tool offers a fast, flexible, and user-friendly approach to data handling. By integrating ingestion, transformation, and export into a single pipeline, it empowers professionals to maintain clean, reliable datasets while minimizing manual effort.
