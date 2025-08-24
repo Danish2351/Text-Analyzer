@@ -1,0 +1,8 @@
+streamlit
+google-generativeai
+groq
+transformers
+tokenizers
+python-dotenv
+google-cloud-aiplatform
+sentencepiece
